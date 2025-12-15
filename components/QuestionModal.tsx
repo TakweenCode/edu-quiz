@@ -67,18 +67,23 @@ const QuestionModal: React.FC<QuestionModalProps> = ({ question, onAnswer, onClo
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {question.options.map((option, idx) => {
-            let btnClass = "p-6 rounded-xl text-xl font-semibold border-2 transition-all duration-300 transform active:scale-95 select-none focus:outline-none";
+            // Base styles
+            let btnClass = "p-6 rounded-xl text-xl font-semibold border-2 transition-all duration-200 transform select-none outline-none focus:outline-none focus:ring-0 ";
             
             if (showResult) {
+                // RESULT STATE
                 if (idx === question.correctIndex) {
-                    btnClass += " bg-green-500 border-green-600 text-white shadow-lg scale-105"; // Correct answer shown
+                    btnClass += " bg-green-500 border-green-600 text-white shadow-lg scale-105"; 
                 } else if (idx === selectedOption && idx !== question.correctIndex) {
-                    btnClass += " bg-red-500 border-red-600 text-white opacity-80"; // Wrong selection
+                    btnClass += " bg-red-500 border-red-600 text-white opacity-80";
                 } else {
-                    btnClass += " bg-gray-100 border-gray-200 text-gray-400 opacity-50"; // Other options
+                    btnClass += " bg-gray-50 border-gray-100 text-gray-300 opacity-40";
                 }
             } else {
-                btnClass += " bg-white border-slate-200 text-slate-700 hover:border-indigo-500 hover:bg-indigo-50 shadow-sm hover:shadow-md";
+                // NORMAL STATE
+                // Removed strong hover border/bg colors that look like "selection"
+                // Added active state for tactile feedback on mobile
+                btnClass += " bg-white border-slate-200 text-slate-700 active:scale-95 active:bg-slate-50 hover:shadow-md";
             }
 
             return (
