@@ -114,7 +114,7 @@ const Wheel: React.FC<WheelProps> = ({ questions, answeredIds, colors, onSelectQ
       </div>
 
       {/* Wheel */}
-      <div className="relative w-full h-full drop-shadow-2xl rounded-full border-4 border-slate-800 bg-white">
+      <div className="relative w-full h-full drop-shadow-2xl rounded-full bg-white overflow-hidden">
         <svg
             ref={wheelRef}
             viewBox="0 0 100 100"
@@ -154,7 +154,7 @@ const Wheel: React.FC<WheelProps> = ({ questions, answeredIds, colors, onSelectQ
       <button
         onClick={spin}
         disabled={isSpinning || availableQuestions.length === 0}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white border-4 border-slate-800 rounded-full flex items-center justify-center text-slate-800 font-bold shadow-lg z-10 hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center text-slate-800 font-bold shadow-xl z-10 hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {availableQuestions.length === 0 ? 'انتهى' : 'دوّر'}
       </button>

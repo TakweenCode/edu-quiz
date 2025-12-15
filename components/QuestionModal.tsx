@@ -67,7 +67,7 @@ const QuestionModal: React.FC<QuestionModalProps> = ({ question, onAnswer, onClo
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {question.options.map((option, idx) => {
-            let btnClass = "p-6 rounded-xl text-xl font-semibold border-2 transition-all duration-300 transform active:scale-95";
+            let btnClass = "p-6 rounded-xl text-xl font-semibold border-2 transition-all duration-300 transform active:scale-95 select-none focus:outline-none";
             
             if (showResult) {
                 if (idx === question.correctIndex) {
@@ -87,6 +87,7 @@ const QuestionModal: React.FC<QuestionModalProps> = ({ question, onAnswer, onClo
                 onClick={() => handleOptionClick(idx)}
                 disabled={showResult}
                 className={btnClass}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 {option}
               </button>
